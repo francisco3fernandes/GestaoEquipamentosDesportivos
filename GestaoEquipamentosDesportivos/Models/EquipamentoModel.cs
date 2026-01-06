@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace GestaoEquipamentosDesportivos.Models
 {
-    internal class EquipamentoModel
+    public class EquipamentoModel
     {
+        public int IdEquipamento { get; set; }
+        public string Nome { get; set; }
+        public string Tipo { get; set; }
+        public string Estado { get; set; }
+        public DateTime DataAquisicao { get; set; }
     }
 }
