@@ -7,11 +7,11 @@ using System.Net.Http.Headers;
 
 namespace GestaoEquipamentosDesportivos.DataAccess
 {
-    public class DataAccess
+    public class SqlDataAccess
     {
         private readonly string _connectionString;
 
-        public DataAccess()
+        public SqlDataAccess()
         {
             _connectionString = ConfigurationManager.ConnectionStrings["GestaoEquipamentosDB"].ConnectionString;
         }
