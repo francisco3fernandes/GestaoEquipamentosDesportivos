@@ -1,8 +1,9 @@
-﻿using System;
+﻿using GestaoEquipamentosDesportivos.Models;
+using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
-using Microsoft.Data.SqlClient;
-using GestaoEquipamentosDesportivos.Models;
+using System.Data;
 using System.Net.Http.Headers;
 
 namespace GestaoEquipamentosDesportivos.DataAccess
@@ -204,6 +205,32 @@ namespace GestaoEquipamentosDesportivos.DataAccess
             }
 
             return equipamentos;
+        }
+
+        public void AssociarEquipamentoModalidade(int idEquipamento, int idModalidade)
+        {
+            using SqlConnection conn = new SqlConnection(_connectionString);
+            using SqlCommand cmd = new SqlCommand("spAssociarEquipamentoModalidade", conn);
+
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@IdEquipamento", idEquipamento);
+            cmd.Parameters.AddWithValue("@IdModalidade", idModalidade);
+
+            conn.Open();
+            cmd.ExecuteNonQuery();
+        }
+
+        public void RemoverEquipamentoModalidade(int idEquipamento, int idModalidade)
+        {
+            using SqlConnection conn = new SqlConnection(_connectionString);
+            using SqlCommand cmd = new SqlCommand("spRemoverEquipamentoModalidade", conn);
+
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@IdEquipamento", idEquipamento);
+            cmd.Parameters.AddWithValue("@IdModalidade", idModalidade);
+
+            conn.Open();
+            cmd.ExecuteNonQuery();
         }
     }
 }
