@@ -179,7 +179,7 @@ namespace GestaoEquipamentosDesportivos.DataAccess
             cmd.ExecuteNonQuery();
         }
 
-        public List<EquipamentoModel> ListarEquipamentosPorModalidade (int idModalidade)
+        public List<EquipamentoModel> ListarEquipamentosPorModalidade(int idModalidade)
         {
             List<EquipamentoModel> equipamentos = new List<EquipamentoModel>();
 
@@ -205,32 +205,6 @@ namespace GestaoEquipamentosDesportivos.DataAccess
             }
 
             return equipamentos;
-        }
-
-        public void AssociarEquipamentoModalidade(int idEquipamento, int idModalidade)
-        {
-            using SqlConnection conn = new SqlConnection(_connectionString);
-            using SqlCommand cmd = new SqlCommand("spAssociarEquipamentoModalidade", conn);
-
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@IdEquipamento", idEquipamento);
-            cmd.Parameters.AddWithValue("@IdModalidade", idModalidade);
-
-            conn.Open();
-            cmd.ExecuteNonQuery();
-        }
-
-        public void RemoverEquipamentoModalidade(int idEquipamento, int idModalidade)
-        {
-            using SqlConnection conn = new SqlConnection(_connectionString);
-            using SqlCommand cmd = new SqlCommand("spRemoverEquipamentoModalidade", conn);
-
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@IdEquipamento", idEquipamento);
-            cmd.Parameters.AddWithValue("@IdModalidade", idModalidade);
-
-            conn.Open();
-            cmd.ExecuteNonQuery();
         }
     }
 }
