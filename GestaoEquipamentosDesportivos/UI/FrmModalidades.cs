@@ -1,4 +1,7 @@
-﻿using System;
+﻿using GestaoEquipamentosDesportivos.DataAccess;
+using GestaoEquipamentosDesportivos.Models;
+using GestaoEquipamentosDesportivos.TextFiles;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,8 +10,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using GestaoEquipamentosDesportivos.DataAccess;
-using GestaoEquipamentosDesportivos.Models;
+using GestaoEquipamentosDesportivos.TextFiles;
+
 
 namespace GestaoEquipamentosDesportivos.UI
 {
@@ -21,6 +24,7 @@ namespace GestaoEquipamentosDesportivos.UI
         {
             InitializeComponent();
             CarregarModalidades();
+            FileHelper.GuardarModalidades(_dataAccess.ListarModalidades());
         }
 
         private void CarregarModalidades()
