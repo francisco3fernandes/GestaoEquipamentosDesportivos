@@ -38,6 +38,19 @@ namespace GestaoEquipamentosDesportivos.UI
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtNome.Text) ||
+             string.IsNullOrWhiteSpace(txtTipo.Text) ||
+             string.IsNullOrWhiteSpace(txtEstado.Text))
+            {
+                MessageBox.Show(
+                    "Todos os campos (Nome, Tipo e Estado) são obrigatórios.",
+                    "Erro de validação",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return;
+            }
+
             EquipamentoModel equipamento = new EquipamentoModel
             {
                 Nome = txtNome.Text,

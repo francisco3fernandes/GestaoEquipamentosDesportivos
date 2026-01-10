@@ -1,10 +1,11 @@
-﻿using System;
+﻿using GestaoEquipamentosDesportivos.Models;
+using Microsoft.VisualBasic.ApplicationServices;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.IO;
-using GestaoEquipamentosDesportivos.Models;
 
 namespace GestaoEquipamentosDesportivos.TextFiles
 {

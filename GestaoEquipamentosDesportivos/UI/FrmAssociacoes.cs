@@ -43,6 +43,17 @@ namespace GestaoEquipamentosDesportivos.UI
             int idEquipamento = (int)cmbEquipamentos.SelectedValue;
             int idModalidade = (int)cmbModalidades.SelectedValue;
 
+            if (_dataAccess.EquipamentoJaAssociado(idEquipamento))
+            {
+                MessageBox.Show(
+                    "Este equipamento já está associado a uma modalidade.",
+                    "Associação inválida",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
+                return;
+            }
+
             _dataAccess.AssociarEquipamentoModalidade(idEquipamento, idModalidade);
             MessageBox.Show("Associação criada com sucesso.");
         }

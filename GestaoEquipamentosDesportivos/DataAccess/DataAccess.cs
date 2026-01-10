@@ -206,5 +206,20 @@ namespace GestaoEquipamentosDesportivos.DataAccess
 
             return equipamentos;
         }
+
+        public bool EquipamentoJaAssociado(int idEquipamento)
+        {
+            using SqlConnection conn = new SqlConnection(_connectionString);
+            using SqlCommand cmd = new SqlCommand(
+                "SELECT COUNT(*) FROM Equipamento_Modalidade WHERE IdEquipamento = @IdEquipamento",
+                conn);
+
+            cmd.Parameters.AddWithValue("@IdEquipamento", idEquipamento);
+
+            conn.Open();
+            int total = (int)cmd.ExecuteScalar();
+
+            return total > 0;
+        }
     }
 }

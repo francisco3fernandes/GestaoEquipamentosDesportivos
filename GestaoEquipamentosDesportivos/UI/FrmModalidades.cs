@@ -39,6 +39,18 @@ namespace GestaoEquipamentosDesportivos.UI
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtNome.Text) ||
+                string.IsNullOrWhiteSpace(txtDescricao.Text))
+            {
+                MessageBox.Show(
+                    "Nome e descrição são obrigatórios.",
+                    "Erro de validação",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return;
+            }
+
             ModalidadeModel modalidade = new ModalidadeModel
             {
                 Nome = txtNome.Text,
