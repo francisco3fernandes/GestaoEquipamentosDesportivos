@@ -62,6 +62,7 @@ namespace GestaoEquipamentosDesportivos.UI
             _dataAccess.AdicionarEquipamento(equipamento);
             LimparCampos();
             CarregarEquipamentos();
+            MessageBox.Show("Equipamento adicionado com sucesso.");
         }
 
         private void btnAtualizar_Click(object sender, EventArgs e)
@@ -81,6 +82,7 @@ namespace GestaoEquipamentosDesportivos.UI
             _dataAccess.AtualizarEquipamento(equipamento);
             LimparCampos();
             CarregarEquipamentos();
+            MessageBox.Show("Equipamento atualizado com sucesso.");
         }
 
         private void btnRemover_Click(object sender, EventArgs e)
@@ -91,6 +93,7 @@ namespace GestaoEquipamentosDesportivos.UI
             _dataAccess.RemoverEquipamento(_idEquipamentoSelecionado);
             LimparCampos();
             CarregarEquipamentos();
+            MessageBox.Show("Equipamento removido com sucesso.");
         }
 
         private void dgvEquipamentos_CellContentClick(object sender, DataGridViewCellEventArgs e)

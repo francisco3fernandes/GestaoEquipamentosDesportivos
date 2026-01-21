@@ -60,6 +60,8 @@ namespace GestaoEquipamentosDesportivos.UI
             _dataAccess.AdicionarModalidade(modalidade);
             LimparCampos();
             CarregarModalidades();
+            MessageBox.Show("Modalidade adicionada com sucesso.");
+
         }
 
         private void btnAtualizar_Click(object sender, EventArgs e)
@@ -78,6 +80,7 @@ namespace GestaoEquipamentosDesportivos.UI
             _dataAccess.AtualizarModalidade(modalidade);
             LimparCampos();
             CarregarModalidades();
+            MessageBox.Show("Modalidade atualizada com sucesso.");
         }
 
         private void btnRemover_Click(object sender, EventArgs e)
@@ -88,6 +91,7 @@ namespace GestaoEquipamentosDesportivos.UI
             _dataAccess.RemoverModalidade(_idModalidadeSelecionada);
             LimparCampos();
             CarregarModalidades();
+            MessageBox.Show("Modalidade removida com sucesso.");
         }
 
         private void btnLimpar_Click(object sender, EventArgs e)
